@@ -1,0 +1,18 @@
+nav {
+  background-color: #6c63ff;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-links span {
+  color: white;
+  font-size: 16px;
+}
