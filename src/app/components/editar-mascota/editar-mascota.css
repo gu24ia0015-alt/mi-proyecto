@@ -66,3 +66,11 @@
   border: none;
   padding: 12px 32px;
   border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-cancelar:hover {
+  background-color: #bdbdbd;
+}

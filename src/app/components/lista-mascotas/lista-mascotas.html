@@ -11,6 +11,14 @@
   </app-formulario-mascota>
 }
 
+@if (mascotaSeleccionada) {
+  <app-editar-mascota
+    [mascota]="mascotaSeleccionada"
+    (mascotaEditada)="mascotaEditada()"
+    (cancelar)="cancelarEdicion()">
+  </app-editar-mascota>
+}
+
 <div class="lista">
   @for (mascota of mascotas; track $index) {
     <div class="tarjeta">
@@ -23,6 +31,9 @@
         <p><strong>Edad:</strong> {{ mascota.edad }} años</p>
       </div>
       <div class="tarjeta-footer">
+        <button class="btn-editar" (click)="editarMascota(mascota)">
+          ✏️ Editar
+        </button>
         <button class="btn-eliminar" (click)="eliminarMascota(mascota.id)">
           🗑️ Eliminar
         </button>
