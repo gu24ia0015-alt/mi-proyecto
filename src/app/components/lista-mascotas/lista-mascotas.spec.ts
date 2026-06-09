@@ -1,22 +1,46 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component, OnInit } from '@angular/core';
+import { Mascota } from '../../interfaces/mascota';
+import { MascotaService } from '../../services/mascota';
+import { FormularioMascotaComponent } from '../formulario-mascota/formulario-mascota';
+import { CommonModule } from '@angular/common';
 
-import { ListaMascotas } from './lista-mascotas';
+@Component({
+  selector: 'app-lista-mascotas',
+  standalone: true,
+  imports: [FormularioMascotaComponent, CommonModule],
+  templateUrl: './lista-mascotas.html',
+  styleUrl: './lista-mascotas.css'
+})
+export class ListaMascotasComponent implements OnInit {
 
-describe('ListaMascotas', () => {
-  let component: ListaMascotas;
-  let fixture: ComponentFixture<ListaMascotas>;
+  mascotas: Mascota[] = [];
+  mostrarFormulario: boolean = false;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [ListaMascotas],
-    }).compileComponents();
+  constructor(private mascotaService: MascotaService) {}
 
-    fixture = TestBed.createComponent(ListaMascotas);
-    component = fixture.componentInstance;
-    await fixture.whenStable();
-  });
+  ngOnInit() {
+    this.cargarMascotas();
+  }
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  cargarMascotas() {
+    this.mascotaService.getMascotas().subscribe(data => {
+      this.mascotas = data;
+    });
+  }
+
+  eliminarMascota(id: number) {
+    this.mascotaService.eliminarMascota(id).subscribe(() => {
+      this.cargarMascotas();
+    });
+  }
+
+  toggleFormulario() {
+    this.mostrarFormulario = !this.mostrarFormulario;
+  }
+
+  mascotaAgregada() {
+    this.cargarMascotas();
+    this.mostrarFormulario = false;
+  }
+
+}
