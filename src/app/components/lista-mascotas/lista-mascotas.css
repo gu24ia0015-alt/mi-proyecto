@@ -1,0 +1,90 @@
+.encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.encabezado h1 {
+  font-size: 32px;
+  color: #6c63ff;
+  margin: 0;
+}
+
+.btn-agregar {
+  background-color: #6c63ff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-agregar:hover {
+  background-color: #574fd6;
+}
+
+.lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.tarjeta {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  width: 280px;
+  transition: transform 0.2s;
+}
+
+.tarjeta:hover {
+  transform: translateY(-4px);
+}
+
+.tarjeta-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.tarjeta-header .emoji {
+  font-size: 36px;
+}
+
+.tarjeta-header h2 {
+  color: #6c63ff;
+  margin: 0;
+  font-size: 20px;
+}
+
+.tarjeta-body p {
+  color: #555;
+  margin: 8px 0;
+  font-size: 15px;
+}
+
+.tarjeta-footer {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-eliminar {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-eliminar:hover {
+  background-color: #e05555;
+}
