@@ -1,1 +1,32 @@
-<p>lista-mascotas works!</p>
+<div class="encabezado">
+  <h1>🐾 Mis Mascotas</h1>
+  <button class="btn-agregar" (click)="toggleFormulario()">
+    @if (mostrarFormulario) { Cancelar } @else { + Agregar Mascota }
+  </button>
+</div>
+
+@if (mostrarFormulario) {
+  <app-formulario-mascota
+    (mascotaGuardada)="mascotaAgregada()">
+  </app-formulario-mascota>
+}
+
+<div class="lista">
+  @for (mascota of mascotas; track $index) {
+    <div class="tarjeta">
+      <div class="tarjeta-header">
+        <span class="emoji">🐶</span>
+        <h2>{{ mascota.nombre }}</h2>
+      </div>
+      <div class="tarjeta-body">
+        <p><strong>Raza:</strong> {{ mascota.raza }}</p>
+        <p><strong>Edad:</strong> {{ mascota.edad }} años</p>
+      </div>
+      <div class="tarjeta-footer">
+        <button class="btn-eliminar" (click)="eliminarMascota(mascota.id)">
+          🗑️ Eliminar
+        </button>
+      </div>
+    </div>
+  }
+</div>
