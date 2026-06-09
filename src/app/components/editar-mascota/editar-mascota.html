@@ -1,1 +1,28 @@
-<p>editar-mascota works!</p>
+<div class="formulario-contenedor">
+  <h2>✏️ Editar Mascota</h2>
+
+  <div class="campo">
+    <label>Nombre</label>
+    <input type="text" [(ngModel)]="mascotaEditando.nombre" placeholder="Nombre"/>
+  </div>
+
+  <div class="campo">
+    <label>Raza</label>
+    <input type="text" [(ngModel)]="mascotaEditando.raza" placeholder="Raza"/>
+  </div>
+
+  <div class="campo">
+    <label>Edad</label>
+    <input type="number" [(ngModel)]="mascotaEditando.edad" placeholder="Edad"/>
+  </div>
+
+  <div class="botones">
+    <button class="btn-guardar" (click)="guardarEdicion()">
+      💾 Guardar Cambios
+    </button>
+    <button class="btn-cancelar" (click)="cancelarEdicion()">
+      ✖️ Cancelar
+    </button>
+  </div>
+
+</div>
