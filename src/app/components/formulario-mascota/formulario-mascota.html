@@ -1,1 +1,23 @@
-<p>formulario-mascota works!</p>
+<div class="formulario-contenedor">
+  <h2>🐾 Nueva Mascota</h2>
+
+  <div class="campo">
+    <label>Nombre</label>
+    <input type="text" [(ngModel)]="nuevaMascota.nombre" placeholder="Ej. Firulais"/>
+  </div>
+
+  <div class="campo">
+    <label>Raza</label>
+    <input type="text" [(ngModel)]="nuevaMascota.raza" placeholder="Ej. Labrador"/>
+  </div>
+
+  <div class="campo">
+    <label>Edad</label>
+    <input type="number" [(ngModel)]="nuevaMascota.edad" placeholder="Ej. 3"/>
+  </div>
+
+  <button class="btn-guardar" (click)="agregarMascota()">
+    💾 Guardar Mascota
+  </button>
+
+</div>
