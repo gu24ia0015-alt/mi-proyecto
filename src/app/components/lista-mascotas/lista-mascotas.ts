@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Mascota } from '../../interfaces/mascota';
 import { MascotaService } from '../../services/mascota';
 import { FormularioMascotaComponent } from '../formulario-mascota/formulario-mascota';
@@ -18,7 +18,10 @@ export class ListaMascotasComponent implements OnInit {
   mostrarFormulario: boolean = false;
   mascotaSeleccionada: Mascota | null = null;
 
-  constructor(private mascotaService: MascotaService) {}
+  constructor(
+    private mascotaService: MascotaService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit() {
     this.cargarMascotas();
@@ -26,7 +29,8 @@ export class ListaMascotasComponent implements OnInit {
 
   cargarMascotas() {
     this.mascotaService.getMascotas().subscribe(data => {
-      this.mascotas = data;
+      this.mascotas = [...data];
+      this.cdr.detectChanges();
     });
   }
 
