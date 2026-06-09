@@ -23,4 +23,8 @@ export class MascotaService {
     return this.http.delete(`${this.url}/mascotas/${id}`);
   }
 
+  editarMascota(id: number, mascota: Mascota) {
+    return this.http.put<Mascota>(`${this.url}/mascotas/${id}`, mascota);
+  }
+
 }
